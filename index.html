@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8,000 Chin-Ups in 24 Hours — Zachary Lundfelt</title>
+  <meta name="description" content="8,000 Chin-Ups in 24 Hours — Zachary Lundfelt. September 1, 2026. Donate and watch the livestream supporting Wounded Warrior Project®." />
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #141418;
+      --surface-2: #1b1b21;
+      --text: #f2f2f2;
+      --muted: #c3c3c8;
+      --accent: #f15a24;
+      --accent-2: #ffd166;
+      --danger: #ff4d4d;
+      --focus: #7bdff2;
+      --border: #2a2a33;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1c1c24 0%, #0a0a0b 55%, #070708 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      padding: 10px 14px;
+      background: var(--accent);
+      color: #050505;
+      font-weight: 700;
+      z-index: 999;
+      border-radius: 4px;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10, 10, 11, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav__brand {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      color: var(--accent-2);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav__links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+
+    .nav__links a[aria-current="true"] {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(241, 90, 36, 0.15);
+    }
+
+    main {
+      padding: 0 20px 80px;
+    }
+
+    section {
+      margin: 60px auto;
+      max-width: 1080px;
+      scroll-margin-top: 90px;
+    }
+
+    .hero {
+      padding-top: 80px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero__eyebrow {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      margin: 0;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .hero__subhead {
+      font-size: 1.1rem;
+      color: var(--text);
+      max-width: 720px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 700;
+      background: var(--surface);
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .btn--primary {
+      background: var(--accent);
+      color: #080808;
+      border-color: transparent;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid--two {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card--danger {
+      border-color: var(--danger);
+      background: rgba(255, 77, 77, 0.08);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--accent-2);
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px;
+      background: var(--surface-2);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .countdown {
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .list-strong li {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .edit-me code {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent-2);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__brand">World Record Attempt</div>
+      <div class="nav__links">
+        <a href="#hero">Hero</a>
+        <a href="#mission">Mission</a>
+        <a href="#standard">Standard</a>
+        <a href="#safety">Safety</a>
+        <a href="#help">How to Help</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <span class="hero__eyebrow">World record attempt</span>
+      <h1 id="hero-title">8,000 Chin-Ups. 24 Hours.</h1>
+      <p class="hero__subhead">Zachary Lundfelt — September 1, 2026 — fundraiser benefiting Wounded Warrior Project®.</p>
+      <div class="cta-group" role="group" aria-label="Primary calls to action">
+        <a class="btn btn--primary" href="https://communityfundraising.woundedwarriorproject.org/campaigns/World-Record-Chin-Up-s-in-24-Hours" target="_blank" rel="noopener">Donate &amp; Livestream</a>
+        <a class="btn" id="sponsor-btn" href="mailto:Zach@sprfc.com">Sponsor</a>
+        <a class="btn" id="volunteer-btn" href="mailto:Zach@sprfc.com">Volunteer</a>
+        <button class="btn" id="calendar-btn" type="button">Add to Calendar (.ics)</button>
+      </div>
+      <div class="grid grid--two">
+        <div class="metric">
+          <span class="tag">Pacing math</span>
+          <span>8,000 / 24h = 333 per hour average</span>
+        </div>
+        <div class="metric">
+          <span class="tag">Countdown</span>
+          <span class="countdown" id="countdown" aria-live="polite">Loading…</span>
+          <span class="sr-only" id="countdown-label">Time until start</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" aria-labelledby="mission-title">
+      <h2 id="mission-title">Mission</h2>
+      <p>Zachary is attempting 8,000 strict chin-ups in 24 hours to raise funds for veterans and families served by Wounded Warrior Project®.</p>
+      <p>All donations are processed through the official external campaign page via the Donate &amp; Livestream link above.</p>
+      <p class="disclaimer">This effort is independent and not endorsed by Wounded Warrior Project or Guinness World Records. Trademarks belong to their respective owners.</p>
+    </section>
+
+    <section id="standard" aria-labelledby="standard-title">
+      <h2 id="standard-title">The Standard (Non-Negotiable Rep Standard)</h2>
+      <ul class="list-strong">
+        <li>Supinated chin-ups on a straight bar.</li>
+        <li>Full lockout or near dead-hang on every rep.</li>
+        <li>Chin clearly over the bar each rep.</li>
+        <li>No kipping or lower-body momentum.</li>
+      </ul>
+    </section>
+
+    <section id="verification" aria-labelledby="verification-title">
+      <h2 id="verification-title">Verification</h2>
+      <div class="grid grid--two">
+        <div class="card">
+          <h3>Default plan</h3>
+          <p>Independent verification with continuous-ish video, plus a two-person count log that cross-checks totals throughout the 24-hour window.</p>
+        </div>
+        <div class="card">
+          <h3>Guinness track (parallel)</h3>
+          <p>Guinness World Records requirements will be confirmed in writing if that track is pursued. Independent verification continues regardless.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="guinness" aria-labelledby="guinness-title">
+      <h2 id="guinness-title">Guinness Track</h2>
+      <p>Pursuing Guinness World Records category for most chin-ups in 24 hours (palms facing you).</p>
+      <div class="card">
+        <h3>Documentation checklist (draft, not official rules)</h3>
+        <ul class="list-strong">
+          <li>Confirmed category requirements in writing from Guinness World Records.</li>
+          <li>Two independent witnesses with clear time logs.</li>
+          <li>Continuous video coverage with time markers.</li>
+          <li>Rep standard documentation + rest breaks logged.</li>
+          <li>Signed verification packet submitted post-event.</li>
+        </ul>
+        <p class="disclaimer">This checklist is a planning draft only. Guinness World Records™ is a trademark of its owner. This effort is not affiliated with or endorsed by Guinness World Records.</p>
+      </div>
+    </section>
+
+    <section id="safety" aria-labelledby="safety-title">
+      <h2 id="safety-title">Safety First</h2>
+      <div class="card card--danger">
+        <h3>Hard-stop criteria — stop immediately if any of the following occur:</h3>
+        <ul class="list-strong">
+          <li>Dark/cola urine.</li>
+          <li>Severe swelling.</li>
+          <li>Profound weakness.</li>
+          <li>Severe pain with systemic symptoms.</li>
+          <li>Confusion.</li>
+          <li>Inability to urinate.</li>
+          <li>Dehydration symptoms not improving with fluids/sodium.</li>
+        </ul>
+      </div>
+      <div class="grid grid--two">
+        <div class="card">
+          <h3>Hydration &amp; electrolytes</h3>
+          <p>500–750 mL/hour fluids + 300–600 mg sodium/hour minimum (up to ~1,000 mg/hour in heavy sweat/heat).</p>
+        </div>
+        <div class="card">
+          <h3>Medication &amp; stimulant rule</h3>
+          <p>Avoid NSAIDs during extreme efforts; caffeine only strategic (no panic dosing).</p>
+        </div>
+      </div>
+      <p class="disclaimer">Not medical advice. Health decisions should be made with qualified medical professionals.</p>
+    </section>
+
+    <section id="background" aria-labelledby="background-title">
+      <h2 id="background-title">Background</h2>
+      <div class="grid grid--two">
+        <div class="card">
+          <h3>Baseline</h3>
+          <p>~1,000 neutral-grip pull-ups in 2 hours.</p>
+        </div>
+        <div class="card">
+          <h3>Prior attempt</h3>
+          <p>3,417 pull-ups in ~21.5 hours; stopped due to rhabdo scare; later cleared.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="help" aria-labelledby="help-title">
+      <h2 id="help-title">How to Help</h2>
+      <div class="grid grid--two">
+        <div class="card">
+          <h3>Donate</h3>
+          <p>Support veterans and families through the official campaign link.</p>
+          <a class="btn btn--primary" href="https://communityfundraising.woundedwarriorproject.org/campaigns/World-Record-Chin-Up-s-in-24-Hours" target="_blank" rel="noopener">Donate &amp; Livestream</a>
+        </div>
+        <div class="card">
+          <h3>Sponsor or Volunteer</h3>
+          <p>Local sponsors and volunteers help make the event safe and verifiable.</p>
+          <div class="cta-group">
+            <a class="btn" id="sponsor-btn-2" href="mailto:Zach@sprfc.com">Sponsor</a>
+            <a class="btn" id="volunteer-btn-2" href="mailto:Zach@sprfc.com">Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>What counts as a rep?</h3>
+          <p>Supinated chin-ups on a straight bar with full lockout or near dead-hang, chin clearly over the bar, and no kipping or lower-body momentum.</p>
+        </div>
+        <div class="card">
+          <h3>Where do donations go?</h3>
+          <p>All donations are processed through the official external campaign page for Wounded Warrior Project®.</p>
+        </div>
+        <div class="card">
+          <h3>Is it officially endorsed by WWP or Guinness?</h3>
+          <p>No. This is an independent fundraiser and record attempt. Wounded Warrior Project and Guinness World Records are not affiliated or endorsing this effort.</p>
+        </div>
+        <div class="card">
+          <h3>How is it verified?</h3>
+          <p>Continuous-ish video plus a two-person count log will be used, with additional requirements confirmed in writing if a Guinness track is pursued.</p>
+        </div>
+        <div class="card">
+          <h3>Is it safe?</h3>
+          <p>Safety comes first, with hard-stop criteria and medical guidance. Not medical advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="edit" aria-labelledby="edit-title" class="edit-me">
+      <h2 id="edit-title">Edit Me</h2>
+      <p>Update these constants in the inline script to customize the page:</p>
+      <ul>
+        <li><code>DONATE_URL</code> — the external donation/livestream link.</li>
+        <li><code>EVENT_START_ISO</code> — the event start time (ISO string with timezone).</li>
+        <li><code>CONTACT_EMAIL</code> — sponsor/volunteer email address.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="disclaimer">
+      <p>Wounded Warrior Project® is a registered trademark. Guinness World Records™ is a trademark of its owner. This event is independent and not endorsed by either organization.</p>
+    </section>
+  </footer>
+
+  <script>
+    const DONATE_URL = "https://communityfundraising.woundedwarriorproject.org/campaigns/World-Record-Chin-Up-s-in-24-Hours";
+    const EVENT_START_ISO = "2026-09-01T08:00:00-07:00";
+    const CONTACT_EMAIL = "Zach@sprfc.com";
+
+    const mailtoSubjectSponsor = "World Record Chin-Ups Sponsorship";
+    const mailtoBodySponsor = "Hi Zach,%0D%0A%0D%0AI'd like to discuss sponsoring the 8,000 chin-ups in 24 hours event. Please let me know the next steps.%0D%0A%0D%0AThanks,";
+    const mailtoSubjectVolunteer = "World Record Chin-Ups Volunteer";
+    const mailtoBodyVolunteer = "Hi Zach,%0D%0A%0D%0AI'd like to volunteer for the 8,000 chin-ups in 24 hours event. Please share timing and roles.%0D%0A%0D%0AThanks,";
+
+    const sponsorLinks = [document.getElementById("sponsor-btn"), document.getElementById("sponsor-btn-2")];
+    const volunteerLinks = [document.getElementById("volunteer-btn"), document.getElementById("volunteer-btn-2")];
+
+    sponsorLinks.forEach((link) => {
+      if (link) {
+        link.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailtoSubjectSponsor)}&body=${mailtoBodySponsor}`;
+      }
+    });
+
+    volunteerLinks.forEach((link) => {
+      if (link) {
+        link.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailtoSubjectVolunteer)}&body=${mailtoBodyVolunteer}`;
+      }
+    });
+
+    const countdownEl = document.getElementById("countdown");
+    const eventDate = new Date(EVENT_START_ISO);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "Event in progress";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const calendarBtn = document.getElementById("calendar-btn");
+
+    function formatDateICS(date) {
+      const pad = (num) => String(num).padStart(2, "0");
+      return `${date.getUTCFullYear()}${pad(date.getUTCMonth() + 1)}${pad(date.getUTCDate())}T${pad(date.getUTCHours())}${pad(date.getUTCMinutes())}${pad(date.getUTCSeconds())}Z`;
+    }
+
+    function downloadICS() {
+      const start = new Date(EVENT_START_ISO);
+      const end = new Date(start.getTime() + 24 * 60 * 60 * 1000);
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Zachary Lundfelt//World Record Chin-Ups//EN",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        `DTSTAMP:${formatDateICS(new Date())}`,
+        `DTSTART:${formatDateICS(start)}`,
+        `DTEND:${formatDateICS(end)}`,
+        "SUMMARY:8,000 Chin-Ups in 24 Hours — Zachary Lundfelt",
+        `DESCRIPTION:Donate & Livestream: ${DONATE_URL}`,
+        "LOCATION:TBD",
+        "END:VEVENT",
+        "END:VCALENDAR",
+      ].join("\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "8000-chinups-world-record.ics";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    calendarBtn.addEventListener("click", downloadICS);
+
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const navLinks = Array.from(document.querySelectorAll(".nav__links a"));
+
+    function highlightNav() {
+      let currentId = sections[0]?.id;
+      const offset = window.scrollY + 120;
+      sections.forEach((section) => {
+        if (section.offsetTop <= offset) {
+          currentId = section.id;
+        }
+      });
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${currentId}`;
+        link.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+    }
+
+    window.addEventListener("scroll", highlightNav, { passive: true });
+    highlightNav();
+  </script>
+</body>
+</html>
